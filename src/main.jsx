@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { createRoot } from 'react-dom/client'
 import { HeartHandshake, MessageCircle, ShieldCheck, Coffee, UserRoundCheck, Sparkles, MapPin, LockKeyhole, Ghost, BadgeCheck, Smile, ArrowRight, CalendarCheck, Star, Users, Quote, CheckCircle2 } from 'lucide-react'
 import './styles.css'
+import AppMock from './AppMock.jsx'
 
 const profiles = [
   {
@@ -93,7 +94,7 @@ function Header(){
       <a href="#safety">Safety</a>
       <a href="#faq">FAQ</a>
     </nav>
-    <a className="nav-cta" href="#download">Enter the Friendzone</a>
+    <a className="nav-cta" href="#app" onClick={(e) => { e.preventDefault(); window.__openMock() }}>Enter the Friendzone</a>
   </header>
 }
 
@@ -121,7 +122,7 @@ function Hero(){
       <h1>The dating app designed to get you friendzoned.</h1>
       <p className="lead">Meet people who might reject you romantically, but will absolutely send memes, grab coffee, and become emotionally available friends.</p>
       <div className="hero-actions">
-        <a className="primary" href="#screens">See how rejection works <ArrowRight size={18}/></a>
+        <a className="primary" href="#app" onClick={(e) => { e.preventDefault(); window.__openMock() }}>Try the app <ArrowRight size={18}/></a>
         <a className="secondary" href="#how">Read the manifesto</a>
       </div>
       <div className="proof">
@@ -188,7 +189,7 @@ function Safety(){
 function CTA(){
   return <section id="download" className="cta">
     <div><p className="eyebrow">Launch concept</p><h2>Ready to enter the Friendzone?</h2><p>Join the only app where “I see you as a friend” counts as successful onboarding.</p></div>
-    <a className="primary light" href="#home">Start platonically <ArrowRight size={18}/></a>
+    <a className="primary light" href="#app" onClick={(e) => { e.preventDefault(); window.__openMock() }}>Start platonically <ArrowRight size={18}/></a>
   </section>
 }
 
@@ -214,6 +215,9 @@ function Footer(){
 }
 
 function App(){
+  const [showMock, setShowMock] = useState(false)
+  window.__openMock = () => setShowMock(true)
+  if (showMock) return <AppMock onClose={() => setShowMock(false)} />
   return <><Header/><main><Hero/><Manifesto/><How/><Screens/><Profiles/><Safety/><CTA/><FAQ/></main><Footer/></>
 }
 
