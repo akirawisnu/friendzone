@@ -62,10 +62,13 @@ const screenCards = [
     kicker: 'Rejection, but make it UX.',
     content: (
       <>
-        <div className="message left">You seem really cool.</div>
-        <div className="message right">Thank you, I have been practicing.</div>
-        <div className="message left">I feel more friend energy?</div>
-        <div className="suggestion">Suggested reply: “Honestly, elite outcome.”</div>
+        <div className="message left">I had a really nice time tonight.</div>
+        <div className="message right">Me too! You are so easy to talk to.</div>
+        <div className="message left">I think you are amazing. Really.</div>
+        <div className="message right">...I feel a "but" loading...</div>
+        <div className="message left">I see you more as a friend.</div>
+        <div className="message right">Phew. I was worried you would say you hate pineapple on pizza.</div>
+        <div className="suggestion">Suggested reply: "Friendship arc unlocked. Achievement earned."</div>
       </>
     )
   },
